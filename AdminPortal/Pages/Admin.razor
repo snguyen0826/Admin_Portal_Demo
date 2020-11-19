@@ -1,5 +1,15 @@
 ﻿@page "/admin"
+@attribute [Authorize(Roles = "Admin, CEO")]
+
+<hi>Admin</h1>
+
+<LinksRender Links=@links></LinksRender>
 
 @code {
-
+  private List<Link> links = new List<Link>
+{
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Manage User Accounts"},
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Assign Roles"}
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Help Desk"}
+    );
 }
