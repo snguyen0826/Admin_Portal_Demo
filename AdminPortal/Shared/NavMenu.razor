@@ -1,0 +1,57 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">AdminPortal</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <AuthorizeView Roles="Admin,CEO">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="admin">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Admin
+                </NavLink>
+            </li>
+        </AuthorizeView>
+        <AuthorizeView Roles="Finance Admin,CEO">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="financeadmin">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> FINANCE
+                </NavLink>
+            </li>
+        </AuthorizeView>
+        <AuthorizeView Roles="HR Admin,CEO">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="hradmin">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> HR
+                </NavLink>
+            </li>
+        </AuthorizeView>
+        <AuthorizeView Roles="Sales Admin,CEO">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="salesadmin">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> SALES
+                </NavLink>
+            </li>
+        </AuthorizeView>
+        <AuthorizeView Roles="Tech Admin,CEO">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="techadmin">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span>TECHNOLOGY
+                </NavLink>
+            </li>
+        </AuthorizeView>
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

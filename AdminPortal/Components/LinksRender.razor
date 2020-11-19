@@ -1,0 +1,12 @@
+﻿<ul>
+   @foreach (var link in Links)
+   {
+       <li> <a href="@link.LinkUrl"> @link.DisplayName </a></li>
+   }
+</ul>
+ 
+@code {
+
+    [Parameter]
+    public List<Link> Links { get; set; }
+}
