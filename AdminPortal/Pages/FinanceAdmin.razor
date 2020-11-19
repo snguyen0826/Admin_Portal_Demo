@@ -1,6 +1,16 @@
 ﻿@page "/financeadmin"
+@attribute [Authorize{Roles = "Finance Admin,CEO")]
 
+<h1>Finance Admin</h1>
+
+<LinksRender Links=@links></LinksRender>
 
 @code {
-
+    private List<Link> links = new List<Link>
+{
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Finance Reports"},
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Accounts Payable"},
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Accounts Receivable"},
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Tax"}
+      };
 }
