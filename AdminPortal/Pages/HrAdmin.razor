@@ -1,5 +1,17 @@
 ﻿@page "/hradmin"
+@attribute [Authorize(Roles = "HR Admin, CEO")]
+
+<h1>HR Admin</h1>
+
+<LinksRender Links=@links></LinksRender>
 
 @code {
-
+    private List<Link> links = new List<Link>
+{
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "New Hire On-boarding"},
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Benefits"},
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Payroll"},
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "Off-boarding"},
+      new Link { LinkUrl = "https://www.youtube.com/", DisplayName = "HR Reports"}
+};
 }
