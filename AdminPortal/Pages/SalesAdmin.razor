@@ -1,5 +1,15 @@
 ﻿@page "/salesadmin"
+@attribute [Authorize(Roles = "Sales Admin,CEO")]
+
+<h1>Sales Admin</h1>
+
+<LinksRender Links=@links></LinksRender>
 
 @code {
-
+    private List<Link> links = new List<Link>
+    {
+        new Link { LinkUrl = "https://www.google.com/", DisplayName = "Sales Reports"},
+        new Link { LinkUrl = "https://www.google.com/", DisplayName = "Sales Leads"},
+        new Link { LinkUrl = "https://google.com/", DisplayName = "Sales Demo"}
+    };
 }
