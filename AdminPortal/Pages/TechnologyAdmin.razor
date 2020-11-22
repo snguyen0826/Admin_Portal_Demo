@@ -1,5 +1,17 @@
 ﻿@page "/techadmin"
+@attribute [Authorize(Roles = "Tech Admin,CEO")]
+
+<h1>Technology Admin</h1>
+
+<LinksRender Links=@links><</LinksRender>
 
 @code {
-
+    private List<Link> links = new List<Link>
+    {
+        new Link { LinkUrl = "https://www.google.com/", DisplayName = "Application Monitoring"},
+        new Link { LinkUrl = "https://www.google.com/", DisplayName = "Tech Support"},
+        new Link { LinkUrl = "https://www.google.com/", DisplayName = "App Development"},
+        new Link { LinkUrl = "https://www.google.com/", DisplayName = "App Admin"},
+        new Link { LinkUrl = "https://www.google.com/", DisplayName = "Release Management"},
+    };
 }
